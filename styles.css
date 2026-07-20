@@ -2,7 +2,7 @@
   --charcoal: #4b4b4b;
   --red: #ff0000;
   --blue: #003aff;
-  --header-height: 160px;
+  --header-height: clamp(250px, 33.5vh, 340px);
   --header-width: clamp(230px, 20vw, 300px);
   --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -144,8 +144,8 @@ a:hover, a:focus-visible { text-decoration: underline; }
 
   .identity {
     top: auto;
-    bottom: 10px;
-    left: 37%;
+    bottom: 20px;
+    left: 44%;
   }
 }
 
