@@ -40,13 +40,13 @@ layout: default
       <div><dt>Posts</dt><dd>{{ user_post_count }}</dd></div>
       <div><dt>Email</dt><dd><a href="mailto:{{ page.email }}">{{ page.email }}</a></dd></div>
       <div><dt>Site</dt><dd><a href="{{ page.homepage }}">{{ page.homepage }}</a></dd></div>
-        <div>
-          <dt>Biography</dt>
-          <dd>
-            <div class="profile-biography" data-biography>{{ page.biography }}</div>
-            <button class="biography-toggle" type="button" data-biography-toggle aria-expanded="false" hidden>Read more</button>
-          </dd>
-        </div>
+      <div>
+        <dt>Biography</dt>
+        <dd>
+          <div class="profile-biography" data-biography>{{ page.biography }}</div>
+          <button class="biography-toggle" type="button" data-biography-toggle aria-expanded="false" hidden>Read more &gt;&gt;</button>
+        </dd>
+      </div>
     </dl>
   </div>
 </section>
