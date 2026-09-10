@@ -1,0 +1,68 @@
+---
+title: Forum — Nerve pilot
+permalink: /forum/
+---
+
+<section class="panel">
+  <div class="panel-title panel-title-row">
+    <span>RECENT THREADS</span>
+    <a href="{{ '/forum/threads/' | relative_url }}">View all threads &gt;&gt;</a>
+  </div>
+  <div data-forum-sort data-limit="5">
+    {% for thread in site.forum %}
+      {% assign latest_message = thread.messages | last %}
+      <a class="forum-row" data-forum-date="{{ latest_message.posted }}" href="{{ thread.url | relative_url }}">
+        <span class="thread-main">
+          <strong>{{ thread.title }}</strong>
+          <span>{% if thread.active %}ACTIVE{% else %}ARCHIVED{% endif %}</span>
+        </span>
+        <span>by {% include username.html author=latest_message.author %}</span>
+        <span>{{ latest_message.posted }}</span>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="panel">
+  <div class="panel-title panel-title-row">
+    <span>RECENT POSTS</span>
+    <a href="{{ '/forum/posts/' | relative_url }}">View all posts &gt;&gt;</a>
+  </div>
+  <div data-forum-sort data-limit="5">
+    {% for thread in site.forum %}
+      {% for message in thread.messages %}
+        <a class="post-row" data-forum-date="{{ message.posted }}" href="{{ thread.url | relative_url }}#message-{{ forloop.index }}">
+          <strong>{{ thread.title }}</strong>
+          <span>by {% include username.html author=message.author %}</span>
+          <span>{{ message.posted }}</span>
+        </a>
+      {% endfor %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="panel">
+  <div class="panel-title">BOARDS</div>
+  {% assign ordered_boards = site.boards | sort: "order" %}
+  {% for board in ordered_boards %}
+    {% assign board_threads = site.forum | where: "board", board.board_id | sort: "order" %}
+    {% assign board_post_count = 0 %}
+    {% for thread in board_threads %}
+      {% assign thread_post_count = thread.messages | size %}
+      {% assign board_post_count = board_post_count | plus: thread_post_count %}
+    {% endfor %}
+    {% assign latest_thread = board_threads | first %}
+    {% assign latest_message = latest_thread.messages | last %}
+    <a class="board-row" href="{{ board.url | relative_url }}">
+      <span class="thread-main">
+        <strong>{{ board.title }}</strong>
+        <span>{{ board.description }}</span>
+      </span>
+      <span>{{ board_threads | size }} threads</span>
+      <span>{{ board_post_count }} posts</span>
+      <span>{% if latest_thread %}{{ latest_thread.title }}<br>by {% include username.html author=latest_message.author %}{% else %}No posts{% endif %}</span>
+    </a>
+  {% endfor %}
+</section>
+
+<script src="{{ '/assets/js/forum-sort.js' | relative_url }}"></script>

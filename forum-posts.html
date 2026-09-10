@@ -1,0 +1,23 @@
+---
+title: All posts — Nerve pilot
+permalink: /forum/posts/
+---
+
+<p class="breadcrumbs"><a href="{{ '/forum/' | relative_url }}">Forum</a> <span aria-hidden="true">/</span> All posts</p>
+
+<section class="panel">
+  <div class="panel-title">ALL POSTS</div>
+  <div data-forum-sort>
+    {% for thread in site.forum %}
+      {% for message in thread.messages %}
+        <a class="post-row" data-forum-date="{{ message.posted }}" href="{{ thread.url | relative_url }}#message-{{ forloop.index }}">
+          <strong>{{ thread.title }}</strong>
+          <span>by {% include username.html author=message.author %}</span>
+          <span>{{ message.posted }}</span>
+        </a>
+      {% endfor %}
+    {% endfor %}
+  </div>
+</section>
+
+<script src="{{ '/assets/js/forum-sort.js' | relative_url }}"></script>

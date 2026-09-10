@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% seo %}
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  </head>
+  <body>
+    <div class="side-ad side-ad-left" aria-hidden="true"></div>
+    <div class="side-ad side-ad-right" aria-hidden="true"></div>
+    <div class="ad-placeholder" aria-label="Advertisement space"></div>
+    {% include site-header.html %}
+    <main id="main-content">
+      {{ content }}
+    </main>
+    <div class="ad-placeholder ad-placeholder-bottom" aria-label="Advertisement space"></div>
+    <script src="{{ '/assets/js/type.js' | relative_url }}"></script>
+  </body>
+</html>

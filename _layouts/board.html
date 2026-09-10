@@ -1,0 +1,38 @@
+---
+layout: default
+---
+
+<p class="breadcrumbs">
+  <a href="{{ '/forum/' | relative_url }}">Forum</a>
+  <span aria-hidden="true">/</span>
+  {{ page.title }}
+</p>
+
+<section class="panel">
+  <div class="panel-title">{{ page.title | upcase }}</div>
+  <div class="panel-body">
+    <h1>{{ page.title }}</h1>
+    <p>{{ page.description }}</p>
+  </div>
+</section>
+
+<section class="panel">
+  <div class="panel-title">THREADS</div>
+  {% assign board_threads = site.forum | where: "board", page.board_id | sort: "order" %}
+  {% for thread in board_threads %}
+    {% assign first_message = thread.messages | first %}
+    {% assign latest_message = thread.messages | last %}
+    {% assign post_count = thread.messages | size %}
+    {% assign reply_count = post_count | minus: 1 %}
+    <a class="forum-row" href="{{ thread.url | relative_url }}">
+      <span class="thread-main">
+        <strong>{{ thread.title }}</strong>
+        <span>{% if thread.active %}ACTIVE{% else %}ARCHIVED{% endif %}</span>
+      </span>
+      <span>by {% include username.html author=first_message.author %}</span>
+      <span>{{ reply_count }} replies<br>{{ latest_message.posted }}</span>
+    </a>
+  {% else %}
+    <p class="empty-row">No threads.</p>
+  {% endfor %}
+</section>

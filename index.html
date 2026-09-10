@@ -1,37 +1,72 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Nervepilot — Severe">
-    <title>Severe ↯</title>
-    <link rel="icon" type="image/png" href="asset/favicon.png">
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <header class="site-header" aria-label="Site header">
-      <div class="header-copy header-copy--ghost" aria-hidden="true">
-        <div class="identity">
-          <h1><a href="index.html" tabindex="-1">nervepilot</a></h1>
-          <div class="contact-lines">info@nervepilot.com</div>
-          <nav><a href="https://www.instagram.com/amazingliquidfire/" tabindex="-1">Social</a> / <a href="about.html" tabindex="-1">About</a></nav>
-        </div>
-      </div>
+---
+title: Nerve pilot
+---
 
-      <div class="header-copy header-copy--fixed">
-        <div class="identity">
-          <h1><a href="index.html">nervepilot</a></h1>
-          <div class="contact-lines">info@nervepilot.com</div>
-          <nav><a href="https://www.instagram.com/amazingliquidfire/">Social</a> / <a href="about.html">About</a></nav>
-        </div>
-      </div>
-    </header>
+<div data-random-home-rows>
+<section class="panel latest-items" data-home-row>
+  <div class="panel-title">LATEST ITEMS</div>
+  <div class="item-grid">
+    {% for item in (1..4) %}
+      <div class="image-placeholder" aria-label="Item image placeholder {{ item }}"></div>
+    {% endfor %}
+    <a class="knockout-link" href="{{ '/shop/' | relative_url }}">See more &gt;&gt;</a>
+  </div>
+</section>
 
-    <main>
-      <section class="hero" aria-label="Severe">
-        <a class="flash" href="about.html">Severe</a>
-      </section>
-      <section class="blank" aria-hidden="true"></section>
-    </main>
-  </body>
-</html>
+<section class="panel latest-projects" data-home-row>
+  <div class="panel-title">LATEST PROJECTS</div>
+  <div class="project-marquee">
+    <div class="project-track">
+      {% for pass in (1..2) %}
+        {% for project in (1..8) %}
+          <div class="project-placeholder"{% if pass == 2 %} aria-hidden="true"{% else %} aria-label="Project image placeholder {{ project }}"{% endif %}></div>
+        {% endfor %}
+      {% endfor %}
+    </div>
+    <a class="knockout-link" href="{{ '/projects/' | relative_url }}">See more &gt;&gt;</a>
+  </div>
+</section>
+
+<section class="panel home-forum" data-home-row>
+  <div class="home-forum-head">
+    <span>BOARD</span>
+    <span>LAST POST</span>
+    <span>THREADS</span>
+    <span>POSTS</span>
+  </div>
+  <div class="home-forum-empty">
+    <span>No boards.</span>
+  </div>
+</section>
+
+<section class="home-lower-row" data-home-row data-home-lower-row>
+  <div class="home-square-ad" aria-label="Advertisement space"></div>
+  <div class="panel newest-members">
+    <div class="panel-title">NEWEST MEMBERS</div>
+    <div class="newest-member-list" data-random-members>
+      {% for member in site.users %}
+        {% capture member_photo %}{% include profile-image-url.html handle=member.handle %}{% endcapture %}
+        {% assign member_photo = member_photo | strip %}
+        <a class="newest-member" href="{{ member.url | relative_url }}">
+          <span class="member-avatar">
+            {% if member_photo != "" %}<img src="{{ member_photo }}" alt="">{% endif %}
+          </span>
+          <span>{{ member.handle }}</span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="panel" data-home-row>
+  <div class="panel-title">DIRECTORY</div>
+  <div class="panel-body directories">
+    <span>ARTWORK — TKTKTKTK</span>
+    <span>OBJECTS — TKTKTKTK</span>
+    <span>PRINTS — TKTKTKTK</span>
+    <span>CG — TKTKTKTK</span>
+  </div>
+</section>
+</div>
+
+<script src="{{ '/assets/js/home.js' | relative_url }}"></script>

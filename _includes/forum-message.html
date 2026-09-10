@@ -1,0 +1,49 @@
+{% assign author_key = include.message.author | downcase %}
+{% assign member = nil %}
+{% for user in site.users %}
+  {% assign handle_key = user.handle | downcase %}
+  {% if handle_key == author_key %}
+    {% assign member = user %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+{% assign user_post_count = 0 %}
+{% capture member_photo %}{% include profile-image-url.html handle=member.handle %}{% endcapture %}
+{% assign member_photo = member_photo | strip %}
+{% for thread in site.forum %}
+  {% for message in thread.messages %}
+    {% assign message_author_key = message.author | downcase %}
+    {% if message_author_key == author_key %}
+      {% assign user_post_count = user_post_count | plus: 1 %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+<article class="forum-message" id="message-{{ include.number }}">
+  <header class="message-meta">
+    <a href="#message-{{ include.number }}">#{{ include.number }}</a>
+    <time>{{ include.message.posted }}</time>
+  </header>
+  <div class="message-grid">
+    <aside class="member-card">
+      {% if member_photo != "" %}
+        <img class="member-photo" src="{{ member_photo }}" alt="{{ member.handle }}">
+      {% else %}
+        <div class="member-photo member-photo--empty">PHOTO</div>
+      {% endif %}
+      <a class="member-name" href="{{ member.url | relative_url }}">{{ member.handle }}</a>
+      <span>{{ member.rank }}</span>
+      <dl>
+        <div><dt>Joined</dt><dd>{{ member.joined }}</dd></div>
+        <div><dt>Posts</dt><dd>{{ user_post_count }}</dd></div>
+      </dl>
+    </aside>
+    <div class="message-body">
+      {% for paragraph in include.message.body %}
+        <p>{{ paragraph }}</p>
+      {% endfor %}
+      {% if member.quote and member.quote != "" %}
+        <blockquote class="member-quote">{{ member.quote }}</blockquote>
+      {% endif %}
+    </div>
+  </div>
+</article>

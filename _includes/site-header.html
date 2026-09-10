@@ -1,0 +1,19 @@
+<header class="site-header">
+  <div class="site-header-inner">
+    <div class="site-header-top">
+      <a class="site-name" href="{{ '/' | relative_url }}">Nerve pilot</a>
+      <nav class="account-nav" aria-label="Account navigation">
+        <a class="account-link{% if page.url == '/signup/' %} is-current{% endif %}" href="{{ '/signup/' | relative_url }}"{% if page.url == '/signup/' %} aria-current="page"{% endif %}>SIGN UP</a>
+        <a class="account-link account-link--dark{% if page.url == '/login/' %} is-current{% endif %}" href="{{ '/login/' | relative_url }}"{% if page.url == '/login/' %} aria-current="page"{% endif %}>LOG IN</a>
+      </nav>
+    </div>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a{% if page.url == '/' %} class="is-current" aria-current="page"{% endif %} href="{{ '/' | relative_url }}">Home</a>
+      <a{% if page.url == '/projects/' %} class="is-current" aria-current="page"{% endif %} href="{{ '/projects/' | relative_url }}">Projects</a>
+      <a{% if page.url == '/shop/' %} class="is-current" aria-current="page"{% endif %} href="{{ '/shop/' | relative_url }}">Shop</a>
+      <a{% if page.url contains '/forum/' %} class="is-current" aria-current="page"{% endif %} href="{{ '/forum/' | relative_url }}">Forum</a>
+      <a{% if page.url contains '/members/' or page.url contains '/users/' %} class="is-current" aria-current="page"{% endif %} href="{{ '/members/' | relative_url }}">Members</a>
+      <a{% if page.url == '/about/' %} class="is-current" aria-current="page"{% endif %} href="{{ '/about/' | relative_url }}">About</a>
+    </nav>
+  </div>
+</header>

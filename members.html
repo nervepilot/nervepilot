@@ -1,0 +1,59 @@
+---
+title: Members — Nerve pilot
+permalink: /members/
+---
+
+<div class="member-table-wrap">
+  <table class="member-table">
+    <thead>
+      <tr>
+        <th>User name</th>
+        <th>Email</th>
+        <th>Site</th>
+        <th>Join date</th>
+        <th>Posts</th>
+      </tr>
+    </thead>
+    <tbody data-member-sort>
+      {% assign active_users = site.users | where: "active", true | sort: "order" %}
+      {% for member in active_users %}
+        {% capture member_photo %}{% include profile-image-url.html handle=member.handle %}{% endcapture %}
+        {% assign member_photo = member_photo | strip %}
+        {% assign member_handle_key = member.handle | downcase %}
+        {% assign user_post_count = 0 %}
+        {% for thread in site.forum %}
+          {% for message in thread.messages %}
+            {% assign message_author_key = message.author | downcase %}
+            {% if message_author_key == member_handle_key %}
+              {% assign user_post_count = user_post_count | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+        <tr data-post-count="{{ user_post_count }}">
+          <td>
+            <a class="member-list-name" href="{{ member.url | relative_url }}">
+              <span class="member-avatar">
+                {% if member_photo != "" %}<img src="{{ member_photo }}" alt="">{% endif %}
+              </span>
+              <span>{{ member.handle }}</span>
+            </a>
+          </td>
+          <td>
+            {% if member.email and member.email != "" %}
+              {% unless member.email contains "example.invalid" %}<a href="mailto:{{ member.email }}">Contact</a>{% endunless %}
+            {% endif %}
+          </td>
+          <td>
+            {% if member.homepage and member.homepage != "" %}
+              {% unless member.homepage contains "example.invalid" %}<a href="{{ member.homepage }}">Link↗</a>{% endunless %}
+            {% endif %}
+          </td>
+          <td>{{ member.joined }}</td>
+          <td>{{ user_post_count }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<script src="{{ '/assets/js/member-sort.js' | relative_url }}"></script>

@@ -1,0 +1,10 @@
+{%- assign username_key = include.author | downcase -%}
+{%- assign username_profile = nil -%}
+{%- for username_user in site.users -%}
+  {%- assign profile_key = username_user.handle | downcase -%}
+  {%- if profile_key == username_key -%}
+    {%- assign username_profile = username_user -%}
+    {%- break -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- if username_profile -%}{{ username_profile.handle }}{%- else -%}{{ include.author }}{%- endif -%}

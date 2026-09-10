@@ -1,0 +1,25 @@
+---
+title: All threads — Nerve pilot
+permalink: /forum/threads/
+---
+
+<p class="breadcrumbs"><a href="{{ '/forum/' | relative_url }}">Forum</a> <span aria-hidden="true">/</span> All threads</p>
+
+<section class="panel">
+  <div class="panel-title">ALL THREADS</div>
+  <div data-forum-sort>
+    {% for thread in site.forum %}
+      {% assign latest_message = thread.messages | last %}
+      <a class="forum-row" data-forum-date="{{ latest_message.posted }}" href="{{ thread.url | relative_url }}">
+        <span class="thread-main">
+          <strong>{{ thread.title }}</strong>
+          <span>{% if thread.active %}ACTIVE{% else %}ARCHIVED{% endif %}</span>
+        </span>
+        <span>by {% include username.html author=latest_message.author %}</span>
+        <span>{{ latest_message.posted }}</span>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+<script src="{{ '/assets/js/forum-sort.js' | relative_url }}"></script>

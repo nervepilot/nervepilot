@@ -1,0 +1,12 @@
+document.querySelectorAll('[data-biography]').forEach((biography) => {
+  const button = biography.parentElement.querySelector('[data-biography-toggle]')
+
+  if (!button || biography.scrollHeight <= biography.clientHeight) return
+
+  button.hidden = false
+  button.addEventListener('click', () => {
+    const expanded = biography.classList.toggle('is-expanded')
+    button.setAttribute('aria-expanded', String(expanded))
+    button.textContent = expanded ? 'Show less' : 'Read more'
+  })
+})

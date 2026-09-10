@@ -1,0 +1,51 @@
+---
+layout: default
+---
+
+{% assign current_board = site.boards | where: "board_id", page.board | first %}
+
+<p class="breadcrumbs">
+  <a href="{{ '/forum/' | relative_url }}">Forum</a>
+  <span aria-hidden="true">/</span>
+  {% if current_board %}
+    <a href="{{ current_board.url | relative_url }}">{{ current_board.title }}</a>
+  {% else %}
+    {{ page.board }}
+  {% endif %}
+  <span aria-hidden="true">/</span>
+  {{ page.title }}
+</p>
+
+<section class="thread-heading">
+  <div>
+    <p class="eyebrow">{% if current_board %}{{ current_board.title }}{% else %}{{ page.board }}{% endif %}</p>
+    <h1>{{ page.title }}</h1>
+  </div>
+  <span class="status{% unless page.active %} status--closed{% endunless %}">
+    {% if page.active %}ACTIVE{% else %}ARCHIVED{% endif %}
+  </span>
+</section>
+
+<nav class="thread-tools" aria-label="Thread tools">
+  <span>{{ page.messages | size }} messages</span>
+  <span>Page 1 of 1</span>
+  {% if page.active %}<a href="#reply">REPLY</a>{% endif %}
+</nav>
+
+<section aria-label="Thread conversation">
+  {% for message in page.messages %}
+    {% include forum-message.html message=message number=forloop.index %}
+  {% endfor %}
+</section>
+
+{% if page.active %}
+  <section class="panel" id="reply">
+    <div class="panel-title">POST A REPLY</div>
+    <div class="panel-body reply-locked">
+      <p>You must be logged in to reply.</p>
+      <a class="button-link" href="{{ '/login/' | relative_url }}">LOG IN</a>
+    </div>
+  </section>
+{% else %}
+  <div class="notice">This thread is archived. Replies are closed.</div>
+{% endif %}

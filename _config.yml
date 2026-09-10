@@ -1,0 +1,46 @@
+title: Nerve pilot
+url: https://nervepilot.com
+baseurl: ""
+
+collections:
+  boards:
+    output: true
+    permalink: /forum/:name/
+  forum:
+    output: true
+    permalink: /forum/:name/
+  users:
+    output: true
+    permalink: /users/:name/
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: boards
+    values:
+      layout: board
+  - scope:
+      path: ""
+      type: forum
+    values:
+      layout: thread
+  - scope:
+      path: ""
+      type: users
+    values:
+      layout: user
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - magic copy

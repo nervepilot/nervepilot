@@ -1,0 +1,13 @@
+{%- assign profile_image_url = "" -%}
+{%- assign profile_folder = "/assets/users/" | append: include.handle | append: "/" | downcase -%}
+{%- for profile_file in site.static_files -%}
+  {%- assign profile_path = profile_file.path | downcase -%}
+  {%- assign profile_extension = profile_file.extname | downcase -%}
+  {%- if profile_path contains profile_folder and profile_file.basename == "profile" -%}
+    {%- if profile_extension == ".jpg" or profile_extension == ".jpeg" or profile_extension == ".png" or profile_extension == ".gif" -%}
+      {%- assign profile_image_url = profile_file.path | relative_url -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+{{- profile_image_url -}}

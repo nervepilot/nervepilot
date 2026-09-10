@@ -1,0 +1,79 @@
+---
+layout: default
+---
+
+{% assign user_post_count = 0 %}
+{% assign page_handle_key = page.handle | downcase %}
+{% capture profile_photo %}{% include profile-image-url.html handle=page.handle %}{% endcapture %}
+{% assign profile_photo = profile_photo | strip %}
+{% for thread in site.forum %}
+  {% for message in thread.messages %}
+    {% assign message_author_key = message.author | downcase %}
+    {% if message_author_key == page_handle_key %}
+      {% assign user_post_count = user_post_count | plus: 1 %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+<p class="breadcrumbs">
+  <a href="{{ '/members/' | relative_url }}">Members</a>
+  <span aria-hidden="true">/</span>
+  {{ page.handle }}
+</p>
+
+<section class="profile">
+  <div class="profile-photo">
+    {% if profile_photo != "" %}
+      <img src="{{ profile_photo }}" alt="{{ page.handle }}">
+    {% else %}
+      <span>PHOTO</span>
+    {% endif %}
+  </div>
+  <div class="profile-info">
+    <div class="profile-heading">
+      <h1>{{ page.handle }}</h1>
+      {% if page.active %}<span class="status">ACTIVE</span>{% endif %}
+    </div>
+    <dl class="profile-fields">
+      <div><dt>Rank</dt><dd>{{ page.rank }}</dd></div>
+      <div><dt>Join date</dt><dd>{{ page.joined }}</dd></div>
+      <div><dt>Posts</dt><dd>{{ user_post_count }}</dd></div>
+      <div><dt>Email</dt><dd><a href="mailto:{{ page.email }}">{{ page.email }}</a></dd></div>
+      <div><dt>Site</dt><dd><a href="{{ page.homepage }}">{{ page.homepage }}</a></dd></div>
+        <div>
+          <dt>Biography</dt>
+          <dd>
+            <div class="profile-biography" data-biography>{{ page.biography }}</div>
+            <button class="biography-toggle" type="button" data-biography-toggle aria-expanded="false" hidden>Read more</button>
+          </dd>
+        </div>
+    </dl>
+  </div>
+</section>
+
+<script src="{{ '/assets/js/profile.js' | relative_url }}"></script>
+
+{% if page.quote and page.quote != "" %}
+  <blockquote class="profile-quote">{{ page.quote }}</blockquote>
+{% endif %}
+
+<section class="panel" id="posts">
+  <div class="panel-title">POSTS BY {{ page.handle | upcase }}</div>
+  <div class="user-posts">
+    {% assign found_post = false %}
+    {% assign ordered_threads = site.forum | sort: "order" %}
+    {% for thread in ordered_threads %}
+      {% for message in thread.messages %}
+        {% assign message_author_key = message.author | downcase %}
+        {% if message_author_key == page_handle_key %}
+          {% assign found_post = true %}
+          <a href="{{ thread.url | relative_url }}#message-{{ forloop.index }}">
+            <strong>{{ thread.title }}</strong>
+            <span>{{ message.posted }}</span>
+          </a>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+    {% unless found_post %}<p class="empty-row">No posts.</p>{% endunless %}
+  </div>
+</section>
