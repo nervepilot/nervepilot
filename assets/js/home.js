@@ -13,7 +13,13 @@ if (lowerRow && Math.random() < 0.5) lowerRow.classList.add('is-reversed')
 
 const homeRows = document.querySelector('[data-random-home-rows]')
 if (homeRows) {
-  shuffle([...homeRows.querySelectorAll('[data-home-row]')]).forEach((row) => homeRows.append(row))
+  const adRow = homeRows.querySelector('[data-home-ad-row]')
+  const rows = shuffle([...homeRows.querySelectorAll('[data-home-row]:not([data-home-ad-row])')])
+  if (adRow) {
+    const adPosition = 2 + Math.floor(Math.random() * (rows.length - 2))
+    rows.splice(adPosition, 0, adRow)
+  }
+  rows.forEach((row) => homeRows.append(row))
 }
 
 const memberList = document.querySelector('[data-random-members]')

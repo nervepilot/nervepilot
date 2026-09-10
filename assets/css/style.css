@@ -54,6 +54,7 @@ body {
 }
 
 .ad-placeholder-bottom { margin-top: 18px; margin-bottom: 0; }
+.home-row-ad { width: 100%; margin-right: 0; margin-left: 0; }
 
 .side-ad {
   position: fixed;
@@ -443,12 +444,13 @@ h2 { font-size: 16px; }
   .site-nav { justify-content: flex-start; gap: 10px; font-size: 12px; }
   .site-nav a { padding-right: 1px; padding-left: 1px; }
   .account-nav { justify-content: end; }
-  .member-table th:nth-child(1), .member-table td:nth-child(1) { width: 40%; }
-  .member-table th:nth-child(2), .member-table td:nth-child(2) { width: 16%; }
-  .member-table th:nth-child(3), .member-table td:nth-child(3) { width: 13%; }
-  .member-table th:nth-child(4), .member-table td:nth-child(4) { width: 19%; }
-  .member-table th:nth-child(5), .member-table td:nth-child(5) { width: 12%; }
-  .member-table th, .member-table td { padding: 6px 4px; font-size: inherit; }
+  .member-table th:nth-child(1), .member-table td:nth-child(1) { width: 60%; }
+  .member-table th:nth-child(2), .member-table td:nth-child(2),
+  .member-table th:nth-child(3), .member-table td:nth-child(3) { display: none; }
+  .member-table th:nth-child(4), .member-table td:nth-child(4) { width: 25%; }
+  .member-table th:nth-child(5), .member-table td:nth-child(5) { width: 15%; }
+  .member-table th { padding: 12px 5px; white-space: nowrap; }
+  .member-table td { padding: 7px 5px; font-size: inherit; }
   .message-grid { grid-template-columns: 1fr; }
   .member-card { border: 0; }
   .thread-heading { align-items: flex-start; flex-direction: column; }
