@@ -1,11 +1,11 @@
 ---
 handle: nervepilot
-order: 3
+order: 1
 active: true
-rank: New member
-joined: Sep.2026
-email: 
-homepage: 
+rank: Mandate of Heaven
+joined: May.2022
+email: info@nervepilot.com
+homepage: https://nervepilot.com/
 biography: 
 quote: 
 flair: []
