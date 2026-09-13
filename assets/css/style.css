@@ -69,8 +69,8 @@ body {
 .side-ad-left { left: 0; }
 .side-ad-right { right: 0; }
 
-a { color: #9e009e !important; }
-a:hover, a:active, a:focus-visible { color: #fff700 !important; }
+a { color: rgb(0, 0, 255) !important; }
+a:hover, a:active, a:focus-visible { color: rgb(0, 0, 255) !important; text-decoration: underline; }
 a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid #111; outline-offset: 2px; }
 
 .site-header {
@@ -89,6 +89,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 .site-name {
   color: #111;
+  font-family: "Times New Roman", Times, serif;
   font-size: 24px;
   font-weight: 700;
   letter-spacing: -1px;
@@ -98,7 +99,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .site-header-top { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 16px; }
 .site-nav { display: flex; flex-wrap: nowrap; justify-content: flex-start; gap: 14px; white-space: nowrap; }
 .site-nav a { padding: 2px 3px; }
-.site-nav .is-current, .account-nav .is-current { background: #fff700; }
+.site-nav .is-current, .account-nav .is-current { background: rgb(255, 0, 0); }
 .account-nav { display: grid; grid-auto-flow: column; gap: 6px; }
 
 .account-link,
@@ -368,6 +369,7 @@ h2 { font-size: 16px; }
 .profile-info { padding: 10px 14px; }
 .profile-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
 .profile-heading h1 { margin-bottom: 0; font-size: 20px; line-height: 1.1; }
+.profile-username { font-family: "Times New Roman", Times, serif; }
 .profile-fields { margin: 8px 0 0; line-height: 1.2; }
 .profile-fields > div { display: grid; grid-template-columns: 110px minmax(0, 1fr); padding: 3px 0; }
 .profile-fields dt { font-weight: 700; }
@@ -389,7 +391,7 @@ h2 { font-size: 16px; }
   border: 0;
   padding: 3px 6px;
   background: #fff;
-  color: #9e009e;
+  color: rgb(0, 0, 255);
   font: inherit;
   text-decoration: underline;
   cursor: pointer;
