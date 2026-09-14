@@ -1,5 +1,5 @@
 ---
-handle: sven hairsting
+handle: sven_hairsting
 order: 3
 active: true
 rank: New member

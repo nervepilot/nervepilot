@@ -1,5 +1,5 @@
 ---
-handle: Heitt_Putrifyer
+handle: heitt.putrifyer
 order: 9
 active: true
 rank: New member
