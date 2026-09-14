@@ -1,7 +1,7 @@
 <header class="site-header">
   <div class="site-header-inner">
     <div class="site-header-top">
-      <a class="site-name" href="{{ '/' | relative_url }}">Nerve pilot</a>
+      <a class="site-name logo" href="{{ '/' | relative_url }}"><span class="logo-word logo-word--nerve" data-logo-word data-color-a="rgb(255, 0, 0)" data-color-b="rgb(0, 0, 255)">Nerve</span> <span class="logo-word logo-word--pilot" data-logo-word data-color-a="rgb(0, 0, 255)" data-color-b="rgb(255, 0, 0)">pilot</span></a>
       <nav class="account-nav" aria-label="Account navigation">
         <a class="account-link{% if page.url == '/signup/' %} is-current{% endif %}" href="{{ '/signup/' | relative_url }}"{% if page.url == '/signup/' %} aria-current="page"{% endif %}>SIGN UP</a>
         <a class="account-link account-link--dark{% if page.url == '/login/' %} is-current{% endif %}" href="{{ '/login/' | relative_url }}"{% if page.url == '/login/' %} aria-current="page"{% endif %}>LOG IN</a>

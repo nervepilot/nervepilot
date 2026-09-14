@@ -70,7 +70,7 @@ body {
 .side-ad-right { right: 0; }
 
 a { color: rgb(0, 0, 255) !important; }
-a:hover, a:active, a:focus-visible { color: rgb(0, 0, 255) !important; text-decoration: underline; }
+a:hover, a:active, a:focus-visible { text-decoration: underline; text-decoration-color: currentColor; }
 a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid #111; outline-offset: 2px; }
 
 .site-header {
@@ -89,17 +89,35 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 .site-name {
   color: #111;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: -1px;
   text-decoration: none;
 }
+
+.heading-1 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1.1;
+}
+
+.logo {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1.1;
+}
+
+.logo-word--nerve { color: rgb(255, 0, 0); }
+.logo-word--pilot { color: rgb(0, 0, 255); }
+
+.site-name:hover { text-decoration: none; }
+.site-name:hover .logo-word { text-decoration: underline; text-decoration-color: currentColor; }
 
 .site-header-top { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 16px; }
 .site-nav { display: flex; flex-wrap: nowrap; justify-content: flex-start; gap: 14px; white-space: nowrap; }
 .site-nav a { padding: 2px 3px; }
-.site-nav .is-current, .account-nav .is-current { background: rgb(255, 0, 0); }
+.site-nav .is-current, .account-nav .is-current { background: transparent; color: rgb(255, 0, 0) !important; }
 .account-nav { display: grid; grid-auto-flow: column; gap: 6px; }
 
 .account-link,
@@ -281,6 +299,7 @@ h2 { font-size: 16px; }
 
 .eyebrow { margin-bottom: 4px; color: #555; font-size: 11px; font-weight: 700; }
 .status { padding: 4px 6px; background: #e85418; font-size: 11px; font-weight: 700; }
+.profile .status { padding: 6px 9px; background: rgb(255, 0, 0); color: #fff; font-size: 12px; font-weight: 400; }
 .status--closed { background: #ddd; }
 
 .thread-tools {
@@ -368,7 +387,7 @@ h2 { font-size: 16px; }
 .profile-photo img { width: 100%; height: 100%; aspect-ratio: 1; object-fit: cover; }
 .profile-info { padding: 10px 14px; }
 .profile-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
-.profile-heading h1 { margin-bottom: 0; font-size: 20px; line-height: 1.1; }
+.profile-heading h1 { margin-bottom: 0; }
 .profile-username { font-family: "Times New Roman", Times, serif; }
 .profile-fields { margin: 8px 0 0; line-height: 1.2; }
 .profile-fields > div { display: grid; grid-template-columns: 110px minmax(0, 1fr); padding: 3px 0; }
@@ -409,7 +428,7 @@ h2 { font-size: 16px; }
 .shop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
 .projects-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
 .image-space { display: grid; min-height: 180px; place-items: center; background: #e8e8e8; color: #555; font-size: 12px; }
-.shop-notice { margin: 0; color: #ff0000; font-size: 20px; font-weight: 700; }
+.shop-notice { margin: 0; color: rgb(255, 0, 0); }
 
 .account-form { display: grid; gap: 10px; max-width: 360px; }
 .account-form label { display: grid; gap: 4px; font-weight: 700; }
