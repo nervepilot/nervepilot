@@ -1,9 +1,8 @@
 ---
 handle: ncbourget
-order: 9
 active: true
 rank: New member
-joined: Jun.2026
+joined: 14.Jul.23
 email: ncbourget@gmail.com
 homepage: https://natebourget.com/
 biography: Hi, my name is nate bourget. I am a graphic designer looking for work. I live in Brooklyn. Reach out, would love to meet you.

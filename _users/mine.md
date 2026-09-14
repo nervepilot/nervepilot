@@ -1,9 +1,8 @@
 ---
 handle: mine
-order: 3
 active: true
 rank: New member
-joined: Sep.2026
+joined: 05.Jul.24
 email: 
 homepage: 
 biography: 

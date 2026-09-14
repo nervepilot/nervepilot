@@ -1,9 +1,8 @@
 ---
 handle: FrancineDancer
-order: 3
 active: true
 rank: New member
-joined: Aug.2026
+joined: 10.May.26
 email: 
 homepage: 
 biography: 

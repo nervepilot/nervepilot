@@ -1,9 +1,8 @@
 ---
 handle: love_germ
-order: 3
 active: true
 rank: New member
-joined: Sep.2026
+joined: 27.Jun.23
 email: 
 homepage: 
 biography: 

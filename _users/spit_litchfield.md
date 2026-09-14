@@ -1,9 +1,8 @@
 ---
 handle: spit_litchfield
-order: 3
 active: true
 rank: New member
-joined: Sep.2026
+joined: 19.Mar.23
 email: 
 homepage: 
 biography: 

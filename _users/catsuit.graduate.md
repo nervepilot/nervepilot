@@ -1,9 +1,8 @@
 ---
 handle: catsuit.graduate
-order: 3
 active: true
 rank: New member
-joined: Aug.2026
+joined: 03.May.23
 email: 
 homepage: 
 biography: 

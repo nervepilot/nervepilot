@@ -1,9 +1,8 @@
 ---
 handle: yo_ko_oh_no
-order: 3
 active: true
 rank: New member
-joined: Aug.2026
+joined: 14.Jan.25
 email: 
 homepage: 
 biography: 

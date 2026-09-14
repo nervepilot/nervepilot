@@ -364,6 +364,8 @@ h2 { font-size: 16px; }
 .member-table th:nth-child(4), .member-table td:nth-child(4) { width: 28%; }
 .member-table th:nth-child(5), .member-table td:nth-child(5) { width: 10%; }
 .member-table th { background: #1c1c1c; color: #fff; font-size: 14px; text-align: center; text-transform: uppercase; }
+.member-sort-button { width: 100%; border: 0; padding: 0; background: transparent; color: inherit; font: inherit; text-transform: inherit; cursor: pointer; }
+.member-sort-button:hover, .member-sort-button:focus-visible { text-decoration: underline; }
 .member-table th, .member-table td { border-right: 1px solid #fff; border-bottom: 1px solid #fff; padding: 8px; }
 .member-table td { background: #ededed; vertical-align: top; }
 .member-table th:last-child, .member-table td:last-child { padding-right: 4px; padding-left: 4px; text-align: center; }

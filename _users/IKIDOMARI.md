@@ -1,9 +1,8 @@
 ---
 handle: IKIDOMARI
-order: 5
 active: true
 rank: New member
-joined: Aug.2026
+joined: 07.Nov.24
 email: 
 homepage: 
 biography: 

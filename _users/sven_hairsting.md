@@ -1,9 +1,8 @@
 ---
 handle: sven_hairsting
-order: 3
 active: true
 rank: New member
-joined: Sep.2026
+joined: 03.Oct.24
 email: 
 homepage: 
 biography: 

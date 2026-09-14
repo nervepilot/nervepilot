@@ -1,9 +1,8 @@
 ---
 handle: sawn_off_rockwell
-order: 3
 active: true
 rank: New member
-joined: Sep.2026
+joined: 28.Mar.26
 email: 
 homepage: 
 biography: 

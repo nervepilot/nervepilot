@@ -1,9 +1,8 @@
 ---
 handle: heitt.putrifyer
-order: 9
 active: true
 rank: New member
-joined: Jun.2026
+joined: 01.Aug.23
 email: ncbourget@gmail.com
 homepage: 
 biography:

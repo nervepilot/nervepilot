@@ -1,9 +1,8 @@
 ---
 handle: boil_dry_leather
-order: 3
 active: true
 rank: New member
-joined: Sep.2026
+joined: 26.Jul.24
 email: 
 homepage: 
 biography: 

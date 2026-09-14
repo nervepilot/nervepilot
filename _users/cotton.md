@@ -1,9 +1,8 @@
 ---
 handle: Cotton
-order: 4
 active: true
 rank: Member
-joined: Jun.2026
+joined: 25.Sep.23
 email: 
 homepage: 
 biography: TKTKTKTK

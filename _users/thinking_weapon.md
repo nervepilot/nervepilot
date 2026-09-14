@@ -1,9 +1,8 @@
 ---
 handle: thinking_weapon
-order: 3
 active: true
 rank: New member
-joined: Aug.2026
+joined: 27.May.25
 email: 
 homepage: 
 biography: 

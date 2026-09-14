@@ -1,9 +1,8 @@
 ---
 handle: agent__frost_
-order: 3
 active: true
 rank: New member
-joined: Sep.2026
+joined: 08.Jun.25
 email: 
 homepage: 
 biography: 
