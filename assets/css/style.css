@@ -299,7 +299,7 @@ h2 { font-size: 16px; }
 
 .eyebrow { margin-bottom: 4px; color: #555; font-size: 11px; font-weight: 700; }
 .status { padding: 4px 6px; background: #e85418; font-size: 11px; font-weight: 700; }
-.profile .status { padding: 6px 9px; background: rgb(255, 0, 0); color: #fff; font-size: 12px; font-weight: 400; }
+.profile .status { position: absolute; top: 0; right: 0; padding: 6px 9px; background: rgb(255, 0, 0); color: #fff; font-size: 12px; font-weight: 400; }
 .status--closed { background: #ddd; }
 
 .thread-tools {
@@ -380,6 +380,7 @@ h2 { font-size: 16px; }
 .search-link { display: block; padding: 3px 7px; background: #ddd; color: #111; text-align: center; text-decoration: none; }
 
 .profile {
+  position: relative;
   display: grid;
   grid-template-columns: 210px minmax(0, 1fr);
   background: #ededed;
