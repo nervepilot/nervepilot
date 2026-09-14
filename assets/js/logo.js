@@ -7,7 +7,7 @@ document.querySelectorAll('[data-logo-word]').forEach((word) => {
 
   const animateWord = async () => {
     while (word.isConnected) {
-      await logoWait(3000 + Math.random() * 4000)
+      await logoWait(2000 + Math.random() * 8000)
 
       for (let flash = 0; flash < 16; flash += 1) {
         word.style.color = colors[(restingColor + flash + 1) % 2]
