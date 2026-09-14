@@ -6,6 +6,6 @@ joined: 26.Jul.24
 email: 
 homepage: 
 biography: 
-quote: 
+quote: man. say it to my bluntsmoke
 flair: []
 ---

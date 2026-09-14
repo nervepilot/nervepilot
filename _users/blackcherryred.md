@@ -5,7 +5,7 @@ rank: New member
 joined: 14.Mar.25
 email: 
 homepage: 
-biography: 
+biography: Fun lover, hush sucker, 
 quote: Girl who cut those bangs??
 flair: []
 ---
