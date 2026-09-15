@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   </head>
   <body>
-    <div class="side-ad side-ad-left" aria-hidden="true"></div>
-    <div class="side-ad side-ad-right" aria-hidden="true"></div>
-    <div class="ad-placeholder ad-placeholder-top" aria-label="Advertisement space"></div>
+    <a class="side-ad side-ad-left" href="{{ '/shop/' | relative_url }}" aria-label="Visit the shop"></a>
+    <a class="side-ad side-ad-right" href="{{ '/shop/' | relative_url }}" aria-label="Visit the shop"></a>
+    <a class="ad-placeholder ad-placeholder-top" href="{{ '/shop/' | relative_url }}" aria-label="Visit the shop"></a>
     {% include site-header.html %}
     <main id="main-content">
       {{ content }}
     </main>
-    <div class="ad-placeholder ad-placeholder-bottom" aria-label="Advertisement space"></div>
+    <a class="ad-placeholder ad-placeholder-bottom" href="{{ '/shop/' | relative_url }}" aria-label="Visit the shop"></a>
     <script src="{{ '/assets/js/type.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/logo.js' | relative_url }}"></script>
   </body>

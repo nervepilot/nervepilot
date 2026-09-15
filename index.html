@@ -39,10 +39,10 @@ title: Nerve pilot
   </div>
 </section>
 
-<div class="ad-placeholder home-row-ad" data-home-row data-home-ad-row aria-label="Advertisement space"></div>
+<a class="ad-placeholder home-row-ad" data-home-row data-home-ad-row href="{{ '/shop/' | relative_url }}" aria-label="Visit the shop"></a>
 
 <section class="home-lower-row" data-home-row data-home-lower-row>
-  <div class="home-square-ad" data-random-square-ad aria-label="Advertisement space">
+  <a class="home-square-ad" data-random-square-ad href="{{ '/shop/' | relative_url }}" aria-label="Visit the shop">
     {% for file in site.static_files %}
       {% assign extension = file.extname | downcase %}
       {% if file.path contains '/assets/square_ads/' and extension != '.ds_store' %}
@@ -51,7 +51,7 @@ title: Nerve pilot
         <span data-square-ad-source="mobile" data-square-ad-url="{{ file.path | relative_url }}"></span>
       {% endif %}
     {% endfor %}
-  </div>
+  </a>
   <div class="panel newest-members">
     <div class="panel-title">NEWEST MEMBERS</div>
     <div class="newest-member-list" data-random-members>

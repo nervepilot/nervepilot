@@ -46,6 +46,7 @@ body {
 }
 
 .ad-placeholder {
+  display: block;
   width: calc(100% - var(--page-gutters));
   max-width: var(--page-width);
   height: 140px;
@@ -58,13 +59,13 @@ body {
 .home-row-ad { width: 100%; margin-right: 0; margin-left: 0; }
 
 .side-ad {
+  display: block;
   position: fixed;
   top: 0;
   bottom: 0;
   z-index: 0;
   width: calc((100vw - 1012px) / 2);
   background: #d8d8d8;
-  pointer-events: none;
 }
 
 .side-ad-left { left: 0; }
@@ -245,10 +246,10 @@ h2 { font-size: 16px; }
 
 .home-lower-row.is-reversed { grid-template-columns: 2fr 1fr; }
 .home-lower-row.is-reversed .home-square-ad { order: 2; }
-.home-square-ad { width: 100%; aspect-ratio: 1; overflow: hidden; background: #d8d8d8; }
+.home-square-ad { display: block; width: 100%; height: 100%; min-height: 0; overflow: hidden; background: #d8d8d8; }
 .home-square-ad [data-square-ad-source] { display: none; }
 .home-square-ad img { display: block; width: 100%; height: 100%; object-fit: fill; }
-.newest-members { min-width: 0; margin-bottom: 0; }
+.newest-members { min-width: 0; height: 100%; overflow: hidden; margin-bottom: 0; }
 .newest-member-list { display: grid; }
 .newest-member {
   display: grid;
@@ -449,6 +450,7 @@ h2 { font-size: 16px; }
 
 @media (max-width: 1040px) {
   .side-ad { display: none; }
+  .home-lower-row, .home-lower-row.is-reversed { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
 }
 
 @media (max-width: 700px) {
@@ -490,7 +492,6 @@ h2 { font-size: 16px; }
   .profile { display: block; }
   .profile-photo { width: 50%; margin: -34px auto 0 0; }
   .user-posts a { align-items: flex-start; flex-direction: column; gap: 3px; }
-  .home-lower-row, .home-lower-row.is-reversed { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
-  .home-square-ad { display: block; height: 100%; aspect-ratio: auto; }
+  .home-square-ad { display: block; }
   .newest-members { order: 1; }
 }

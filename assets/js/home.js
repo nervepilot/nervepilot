@@ -13,7 +13,7 @@ if (lowerRow && Math.random() < 0.5) lowerRow.classList.add('is-reversed')
 
 const squareAdSlots = [...document.querySelectorAll('[data-random-square-ad]')]
 if (squareAdSlots.length) {
-  const mobileView = window.matchMedia('(max-width: 600px)').matches
+  const mobileView = window.matchMedia('(max-width: 1040px)').matches
   const sources = [...squareAdSlots[0].querySelectorAll('[data-square-ad-source]')]
   const desktopAds = sources
     .filter((source) => source.dataset.squareAdSource === 'desktop')
@@ -21,7 +21,7 @@ if (squareAdSlots.length) {
   const mobileAds = sources
     .filter((source) => source.dataset.squareAdSource === 'mobile')
     .map((source) => source.dataset.squareAdUrl)
-  const availableAds = shuffle(mobileView && mobileAds.length ? mobileAds : desktopAds)
+  const availableAds = shuffle(mobileView ? mobileAds : desktopAds)
 
   squareAdSlots.forEach((slot, index) => {
     slot.replaceChildren()
@@ -47,5 +47,26 @@ if (homeRows) {
 const memberList = document.querySelector('[data-random-members]')
 if (memberList) {
   const members = shuffle([...memberList.children])
-  memberList.replaceChildren(...members.slice(0, 9))
+  const memberPanel = memberList.closest('.newest-members')
+  const squareAd = lowerRow?.querySelector('[data-random-square-ad]')
+
+  const sizeLowerRow = () => {
+    if (!lowerRow || !memberPanel || !squareAd) {
+      memberList.replaceChildren(...members.slice(0, 9))
+      return
+    }
+
+    const rowHeight = Math.round(squareAd.getBoundingClientRect().width)
+    lowerRow.style.height = `${rowHeight}px`
+    memberList.replaceChildren(...members)
+
+    const title = memberPanel.querySelector('.panel-title')
+    const availableHeight = rowHeight - (title?.offsetHeight || 0)
+    const memberHeight = members[0]?.getBoundingClientRect().height || 36
+    const visibleCount = Math.max(0, Math.min(members.length, Math.floor(availableHeight / memberHeight)))
+    memberList.replaceChildren(...members.slice(0, visibleCount))
+  }
+
+  requestAnimationFrame(sizeLowerRow)
+  window.addEventListener('resize', sizeLowerRow)
 }
