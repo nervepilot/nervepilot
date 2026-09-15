@@ -45,8 +45,10 @@ if (memberList) {
   const updateButtons = (key, direction) => {
     buttons.forEach((button) => {
       const selected = button.dataset.memberSortButton === key && direction
+      button.classList.toggle('is-sorted', Boolean(selected))
       button.querySelector('[data-sort-indicator]').textContent = selected ? (direction === 'descending' ? '▼' : '▲') : ''
-      button.closest('th').setAttribute('aria-sort', selected ? direction : 'none')
+      const ariaDirection = key === 'username' && selected ? (direction === 'descending' ? 'ascending' : 'descending') : direction
+      button.closest('th').setAttribute('aria-sort', selected ? ariaDirection : 'none')
     })
   }
 
@@ -71,7 +73,7 @@ if (memberList) {
       members.sort((left, right) => {
         const leftValue = valueFor(left, key)
         const rightValue = valueFor(right, key)
-        if (typeof leftValue === 'string') return leftValue.localeCompare(rightValue) * factor
+        if (typeof leftValue === 'string') return leftValue.localeCompare(rightValue) * factor * -1
         return (leftValue - rightValue) * factor
       })
       members.forEach((member) => memberList.append(member))

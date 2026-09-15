@@ -1,8 +1,12 @@
 const prepareBiographies = () => {
   document.querySelectorAll('[data-biography]').forEach((biography) => {
     const button = biography.parentElement.querySelector('[data-biography-toggle]')
+    biography.classList.add('is-expanded')
+    const lineHeight = Number.parseFloat(getComputedStyle(biography).lineHeight)
+    const needsToggle = biography.scrollHeight > lineHeight * 3 + 1
+    biography.classList.remove('is-expanded')
 
-    if (!button || biography.scrollHeight <= biography.clientHeight) return
+    if (!button || !needsToggle) return
 
     button.hidden = false
     button.addEventListener('click', () => {

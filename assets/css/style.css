@@ -53,6 +53,7 @@ body {
   background: #d8d8d8;
 }
 
+.ad-placeholder-top { margin-top: 0; }
 .ad-placeholder-bottom { margin-top: 18px; margin-bottom: 0; }
 .home-row-ad { width: 100%; margin-right: 0; margin-left: 0; }
 
@@ -69,8 +70,10 @@ body {
 .side-ad-left { left: 0; }
 .side-ad-right { right: 0; }
 
-a { color: rgb(0, 0, 255) !important; }
+a { color: rgb(0, 0, 255) !important; text-decoration: none; }
+a, a * { cursor: pointer; }
 a:hover, a:active, a:focus-visible { text-decoration: underline; text-decoration-color: currentColor; }
+a:hover .type-stretch, a:active .type-stretch, a:focus-visible .type-stretch { text-decoration: underline; text-decoration-color: currentColor; }
 a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid #111; outline-offset: 2px; }
 
 .site-header {
@@ -207,8 +210,8 @@ h2 { font-size: 16px; }
 
 .knockout-link {
   position: absolute;
-  right: 8px;
-  bottom: 8px;
+  right: 0;
+  bottom: 0;
   z-index: 1;
   padding: 5px 7px;
   background: #fff;
@@ -242,7 +245,9 @@ h2 { font-size: 16px; }
 
 .home-lower-row.is-reversed { grid-template-columns: 2fr 1fr; }
 .home-lower-row.is-reversed .home-square-ad { order: 2; }
-.home-square-ad { width: 100%; aspect-ratio: 1; background: #d8d8d8; }
+.home-square-ad { width: 100%; aspect-ratio: 1; overflow: hidden; background: #d8d8d8; }
+.home-square-ad [data-square-ad-source] { display: none; }
+.home-square-ad img { display: block; width: 100%; height: 100%; object-fit: fill; }
 .newest-members { min-width: 0; margin-bottom: 0; }
 .newest-member-list { display: grid; }
 .newest-member {
@@ -365,6 +370,7 @@ h2 { font-size: 16px; }
 .member-table th:nth-child(5), .member-table td:nth-child(5) { width: 10%; }
 .member-table th { background: #1c1c1c; color: #fff; font-size: 14px; text-align: center; text-transform: uppercase; }
 .member-sort-button { width: 100%; border: 0; padding: 0; background: transparent; color: inherit; font: inherit; text-transform: inherit; cursor: pointer; }
+.member-sort-button .type-stretch { overflow-wrap: normal; white-space: nowrap; }
 .member-sort-button:hover, .member-sort-button:focus-visible { text-decoration: underline; }
 .member-table th, .member-table td { border-right: 1px solid #fff; border-bottom: 1px solid #fff; padding: 8px; }
 .member-table td { background: #ededed; vertical-align: top; }
@@ -468,19 +474,21 @@ h2 { font-size: 16px; }
   .site-nav { justify-content: flex-start; gap: 10px; font-size: 12px; }
   .site-nav a { padding-right: 1px; padding-left: 1px; }
   .account-nav { justify-content: end; }
-  .member-table th:nth-child(1), .member-table td:nth-child(1) { width: 60%; }
+  .member-table th:nth-child(1), .member-table td:nth-child(1) { width: 54%; }
   .member-table th:nth-child(2), .member-table td:nth-child(2),
   .member-table th:nth-child(3), .member-table td:nth-child(3) { display: none; }
-  .member-table th:nth-child(4), .member-table td:nth-child(4) { width: 25%; }
-  .member-table th:nth-child(5), .member-table td:nth-child(5) { width: 15%; }
+  .member-table th:nth-child(4), .member-table td:nth-child(4) { width: 27%; }
+  .member-table th:nth-child(5), .member-table td:nth-child(5) { width: 19%; }
   .member-table th { padding: 12px 5px; white-space: nowrap; }
   .member-table td { padding: 7px 5px; font-size: inherit; }
+  .member-sort-button[data-member-sort-button="joined"].is-sorted .member-sort-label,
+  .member-sort-button[data-member-sort-button="posts"].is-sorted .member-sort-label { display: none; }
   .message-grid { grid-template-columns: 1fr; }
   .member-card { border: 0; }
   .thread-heading { align-items: flex-start; flex-direction: column; }
   .thread-tools { justify-content: space-between; }
   .profile { display: block; }
-  .profile-photo { width: 50%; margin: -34px 0 0 auto; }
+  .profile-photo { width: 50%; margin: -34px auto 0 0; }
   .user-posts a { align-items: flex-start; flex-direction: column; gap: 3px; }
   .home-lower-row, .home-lower-row.is-reversed { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
   .home-square-ad { display: block; height: 100%; aspect-ratio: auto; }
